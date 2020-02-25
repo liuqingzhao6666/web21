@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+			
+		</script>
+		<style type="text/css">
+			.list{width: 100px; height: 100px; background: red;}
+			.red{background: red;}
+			.green{background: green;}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			{{text}}
+			<button @click="toUpper">转大写</button>
+			<div class="list" :class="bgcolor"></div>
+			<button @click="changeColor">更改背景颜色</button>
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					text:"hello world",
+					bgcolor:'red'
+				},
+				//除了钩子函数，其余所有的函数都写在 methods中
+				methods:{
+					toUpper:function(){
+						this.text = this.text.toUpperCase();
+					},
+					changeColor:function(){
+						if(this.bgcolor == "red"){
+							this.bgcolor = "green";
+						}else{
+							this.bgcolor = "red";
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

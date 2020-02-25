@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>图表</title>
+		<script type="text/javascript" src="echarts.min.js"></script>
+		<style type="text/css">
+			#main{width: 600px;height: 400px;}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			
+		</div>
+		<script type="text/javascript">
+			//1.初始化图表
+			var mychart = echarts.init(document.getElementById('main'));
+			//初始化数据
+			var option = {
+				title: {text:''},
+				tooltip: {},
+				legend: {data: ['销量']},
+				series: [
+					//
+					{
+						name: '销量',
+						type: 'pie', //数据统计图的类型
+						//放置要展示的数据
+						data: [{
+								value: 15,
+								name: '衬衫'
+							},
+							{
+								value: 20,
+								name: '羊毛衫'
+							},
+							{
+								value: 36,
+								name: '雪纺衫'
+							},
+							{
+								value: 10,
+								name: '裤子'
+							},
+							{
+								value: 10,
+								name: '高跟鞋'
+							},
+							{
+								value: 20,
+								name: '袜子'
+							}
+						]
+					}
+				]
+			};
+			//3.将数据写入到图表
+			mychart.setOption(option);
+		</script>
+	</body>
+</html>
