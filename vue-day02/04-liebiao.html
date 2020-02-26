@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>学生信息表</title>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+	<div id="table">
+	  {{ message }}
+	  <table class="table_default1">
+		<tr>
+		  <th>学号</th>
+		  <th v-for="th in tableTh" >
+			{{th.title}}
+		  </th>
+		</tr>
+		<tr v-for="(tr,index) in dataList">
+		  <td>{{index+1}}</td>
+		  <td v-for="td in tr" >
+			{{td}}
+		  </td>
+		</tr>
+	  </table>
+	</div>
+	  <script type="text/javascript">
+		var table = new Vue({
+			el: '#table',
+			data: {
+			  message: '学生信息表',
+			  orderBy: ["c1", "c2","c3","c4"],
+			  tableTh: {//表头的描述信息
+				c1: {
+				  title: "姓名",
+				},
+				c2: {
+				  title: "性别",
+				},
+				c3: {
+				  title: "籍贯",
+				},
+				c4: {
+				  title: "联系方式"
+				}
+			  },
+			  dataList: [
+				{
+				  //数据包
+				  c1: "张楠",
+				  c2: "男",
+				  c3: "海南",
+				  c4: "15565653651"
+				},
+				{
+				  c1: "瓦力斯",
+				  c2: "女",
+				  c3: "新疆",
+				  c4: "12341243432"
+				},
+				{
+				  c1: "扎西拉娜",
+				  c2: "女",
+				  c3: "西藏",
+				  c4: "15041243423"
+				},
+				{
+				  c1: "敖日格勒",
+				  c2: "男",
+				  c3: "内蒙古",
+				  c4: "15234124354"
+				}
+			  ]
+			}
+		  });
+	  </script>
+  
+</div>
+</body>
+</html>
